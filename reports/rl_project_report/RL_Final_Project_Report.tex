@@ -365,7 +365,7 @@ g} \fi
 
 
 % author names and affiliations
-\author{\IEEEauthorblockN{Bryan Ambriz, Sri Vinay Appari, Suresh Ravuri, Harshavardhan Valmiki} \\
+\author{\IEEEauthorblockN{Alexis Bryan Ambriz, Sri Vinay Appari, Suresh Ravuri, Harshavardhan Valmiki} \\
  \IEEEauthorblockA{Computer Engineering Department\\
  San Jos\'{e} State University (SJSU)\\
  San Jos\'{e}, CA, USA \\
@@ -376,7 +376,7 @@ g} \fi
 % in the abstract
 \IEEEtitleabstractindextext{%
 \begin{abstract}
-The goal of this project is to extend traditional reinforcement learning agents to utilize deep reinforcement learning by enhancing the agent with a neural network model using the Gymnasium library in the Python programming language. Traditional preference algorithms such as Monte Carlo, Temporal Difference, SARSA or Q-Learning learn the optimal preference strategy without requiring a neural network.  Deep reinforcement learning strategies involving a neural network agent exist that can learn to predict the optimal state-value and action-value functions used within the Q preference learning algorithm. For this purpose we will use the reinforcement learning library Gymnasium, the neural network library Pytorch, and the deep reinforcement learning library agileRL in Python within the Google colaboratory computational environment. Thus, we aim to train a deep neural network to learn the optimal reinforcement learning strategy within Gymnasium’s Blackjack or complex Atari game environments.
+This project extends traditional reinforcement learning agents to utilize deep reinforcement learning by enhancing the agent with both a double headed Q-Learning neural network model (DDQN) with replay memory, as well as an actor-to-critic (A2C) agent - using the Gymnasium library in the Python programming language. Traditional preference algorithms such as Monte Carlo, Temporal Difference, SARSA or Q-Learning learn the optimal preference strategy without requiring a neural network.  We implemented advanced versions of these algorithms using deep reinforcement learning strategies involving a neural network agent to predict the optimal state-value and action-value functions by applying deep, double-headed Q preference and A2C learning algorithms within the reinforcement learning library Gymnasium's Blackjack environment using the neural network library Pytorch. We found that the A2C agent outperformed the DDQN agent with a roughly 100\% improvement (35\% to 18\% wins) across 200 evaluation simulations. The A2C agent was also found to exhibit clearer decision boundaries.
 \end{abstract}
 % no keywords
 \begin{IEEEkeywords}
@@ -399,7 +399,7 @@ Actor, Critic, Reinforcement, Learning, Network, Large-Language-Model, LLM, Blac
 \begin{figure*}[h]
 \centering
 %\begin{wrapfigure}{r}{5.0in}
-{\includegraphics[width=\textwidth, height=8cm]{./fig/rl_project_architectures.png}}
+{\includegraphics[width=\textwidth, height=8cm]{./fig/fig1_rl_dqns.png}}
 \caption{Evolution of the blackjack learning network agent development from left-to right: Q-learning to double deep q learning (DDQN) in blue, experimental noisy DDQN in pink, A/B testing of actor-to-critic (A2C) DDQN and previous DDQN in green, and finally the combined LLM based A2C agent in yellow.}
 %\end{wrapfigure}
 \end{figure*}
@@ -419,41 +419,59 @@ Deep reinforcement learning provides more flexible, accurate, and efficient lear
 %\Needspace{10\baselineskip}
 \section{Method(s) / System Design}\label{sec:sys)
 
-The first step of our architectural building process was to setup a base reinforcement learning algorithm that utilizes a neural network. For this purpose, we built a Deep Q-Learning Network (DQN) agent. A deep Q-Learning network is similar to a basic neural network and has traditional elements such as multiple dense layers, an activation function, an optimizer, etc. A key difference is that the DQN we implemented adds specific elements related to the reinforcement learning literature; it implements an off policy learning strategy. As such, it contains two networks within it - one that is used to learn the target Q-Learning strategy during training, while the other is used to enact the policy during prediction or inference.
+The first step of our architectural building process was to setup a base reinforcement learning algorithm that utilizes a neural network. For this purpose, we built a Double Headed Deep Q-Learning Network (DDQN) agent. A deep Q-Learning network is similar to a basic neural network and has traditional elements (i.e. multiple dense layers, an activation function, an optimizer, etc) that are used to estimate the Q-Learning (action to state mapping) matrix that is used for reinforcement learning. A key difference is that the DDQN we implemented adds specific elements related to the reinforcement learning literature; it implements an off policy learning strategy via two separate networks. As such, one network is used to learn the target Q-Learning strategy using the previous episode's observations (using the experience replay buffer) during training, while the other is used to enact the policy during prediction or inference during the current observation. The current (target) network is able to use the learning (policy) network's parameter's by copying its' state dict.
+
 \begin{figure}[h]
 \centering
 {\includegraphics[scale=0.3]{./fig/DQN.png}}
-\caption{Example of the Deep Q-Learning Network Agent.}
+\caption{Example of the Double Headed Deep Q-Learning (DDQN) Network Agent.}
 \end{figure}
 \vfill
 An additional exercise we managed to include was to add noise layers to add noise to the output predictions of the target & policy networks, based on a learned distribution of gaussian noise. Including these layers has the potential to increase the "exploration" capability of a reinforcement learning model. By including noise to add randomization to the models outputs, the model is able to make "exploratory" decisions during training and after the typical exploration phase (when the epsilon value is close to 0) as well as post training.
 \begin{figure}[h]
 \centering
 {\includegraphics[scale=0.3]{./fig/NoisyDDQN.png}}
-\caption{Example of the Noisy Deep Q-Learning Network Agent.}
+\caption{Example of the Noisy Double Headed Deep Q-Learning Network Agent.}
 \end{figure}
-The next and culminating step of our project was to use a different learning algorithm, and compare their performance at learning the blackjack environment in Gymnasium. As previously mentioned, the  DQN implemented a Q-Learning strategy that is an off-policy strategy to ensure the agent is taking reasonable risks during training that would allow them to explore the environment without strictly adhering to the policy. The A2C learning strategy, on the other hand, is an on-policy \& risk-averse learning strategy that ensures the model follows it's policy during training \& during prediction or inference. We built and trained a deep A2C network agent and then compared it to the DQN, and found promising results.
+The next and culminating step of our project was to use a different learning algorithm, and compare their performance at learning the blackjack environment in Gymnasium. As previously mentioned, the  DDQN implemented a Q-Learning strategy that is an off-policy strategy to ensure the agent is taking reasonable risks during training that would allow them to explore the environment without strictly adhering to the policy. The A2C learning strategy, on the other hand, is an on-policy \& risk-averse learning strategy that ensures the model follows its' policy during training \& during prediction or inference. We built and trained a deep A2C network agent and then compared it to the DDQN, and found promising results.
 \begin{figure}[h]
 {\includegraphics[scale=0.28]{./fig/AC2.png}}
 \caption{Example of the Deep Actor-to-Critic Learning Network Agent.}
 \end{figure}
 
+\section{Evaluation}\label{sec:eval}
+We evaluated the model in multiple ways in order to identify the DDQN and A2C Agent's weak points by using a heatmap of the learned strategies with respect to the game of blackjack.
+
+\begin{figure}[h]
+\centering
+{\includegraphics[scale=0.3]{./fig/q2c_vs_ddqn_strategy_map_ddqn.png}}
+\caption{Evaluation of the learned strategy of the DDQN agent. The charts at the top use blue hue blocks indicate the chance to stand (more red) and the change to hit (more blue) the dealers card according to the player's or agents sum. The charts at the bottom use darker hue blocks to indicate more disagreement. The DDQN shows more ragged decision boundaries.}
+\end{figure}
+
+
+
+\begin{figure}[h]
+\centering
+{\includegraphics[scale=0.3]{./fig/q2c_vs_ddqn_strategy_map_a2c.png}}
+\caption{Evaluation of the learned strategy of the A2C agent. The charts at the top use blue hue blocks indicate the chance to stand (more red) and the change to hit (more blue) the dealers card according to the player's or agents sum. The charts at the bottom use darker hue blocks to indicate more disagreement. The A2C shows more smooth decision boundaries.}
+\end{figure}
+
 \section{Results}\label{sec:res)
 
-Although we did not evaluate the noisy DQN as compared to the DQN, we noticed the noisy DQN performed slightly worse than the original DQN in terms of the training loss. This may be expected however, as the noisy DQN is including noise into the learned strategy and output predictions. In essence, it seems that the noisy layers may be used when training the model for more iterations where it might be necessary to extend the length of the exploration phase to avoid overfitting. As we did not train the agents for many iterations, we may not have had enough time to take full advantage of the noise layers.
+Although we did not evaluate the noisy DDQN as compared to the DDQN, we noticed the noisy DDQN performed slightly worse than the original DDQN in terms of the training loss. This may be expected however, as the noisy DDQN is including noise into the learned strategy and output predictions. In essence, it seems that the noisy layers may be used when training the model for more iterations where it might be necessary to extend the length of the exploration phase to avoid overfitting. As we did not train the agents for many iterations, we may not have had enough time to take full advantage of the noise layers.
 
 
-We conducted an ablation experiment by evaluating the output of our previously trained blackjack playing DQN as compared to the trained A2C model. We found that the A2C model outperformed the DQN model at blackjack. After 200 simulated rounds of the game, the DQN model only won 18\% of the games, whereas the A2C model won 35\%. Similarly, the A2C outperformed the DQN by achieving a higher average reward across the 200 rounds. The A2C model averaged a reward of -0.250 while the DQN averaged a reward of -0.591. Finally, we compared them by measuring whether they agreed or differed in choices during their matches. We found that they had a decision disagreement rate of around 48\% - implying that the models learned a very different strategy due to their difference in learning algorithm. 
+We conducted an ablation experiment by evaluating the output of our previously trained blackjack playing DDQN as compared to the trained A2C model. We found that the A2C model outperformed the DDQN model at blackjack. After 200 simulated rounds of the game, the DQN model only won 18\% of the games, whereas the A2C model won 35\%. Similarly, the A2C outperformed the DDQN by achieving a higher average reward across the 200 rounds. The A2C model averaged a reward of -0.250 while the DDQN averaged a reward of -0.591. Finally, we compared them by measuring whether they agreed or differed in choices during their matches. We found that they had a decision disagreement rate of around 48\% - implying that the models learned a very different strategy due to their difference in learning algorithm. 
 
 \section{Conclusion}\label{sec:disc)
 
-This project successfully enhanced traditional reinforcement learning (RL) agents by incorporating deep reinforcement learning (Deep RL) techniques, specifically utilizing Deep Q-Learning Networks (DQN) and Actor-to-Critic (A2C) models within the Gymnasium Blackjack environment. Our findings demonstrate that the A2C model outperformed the standard DQN, achieving a higher win rate (35\% vs. 18\%) and a more favorable average reward (-0.250 vs. -0.591) over 200 simulated games. This highlights the effectiveness of Actor-Critic methods in optimizing decision-making strategies in complex environments.
+This project successfully enhanced traditional reinforcement learning (RL) agents by incorporating deep reinforcement learning (Deep RL) techniques, specifically utilizing Double Deep Q-Learning Networks (DDQN) and Actor-to-Critic (A2C) models within the Gymnasium Blackjack environment. Our findings demonstrate that the A2C model outperformed the standard DDQN, achieving a higher win rate (35\% vs. 18\%) and a more favorable average reward (-0.250 vs. -0.591) over 200 simulated games. This highlights the effectiveness of Actor-Critic methods in optimizing decision-making strategies in complex environments.
 
-The introduction of noise layers in the DQN aimed to improve exploration did not yield significant performance gains within the limited training period, suggesting that further training or hyperparameter adjustments may be necessary to realize their potential benefits. Additionally, the notable 48\% decision disagreement rate between DQN and A2C models indicates that different RL approaches can lead to distinct strategic behaviors, offering opportunities for hybrid strategies.
+The introduction of noise layers in the DDQN aimed to improve exploration did not yield significant performance gains within the limited training period, suggesting that further training or hyper parameter adjustments may be necessary to realize their potential benefits. Additionally, the notable 48\% decision disagreement rate between DDQN and A2C models indicates that different RL approaches can lead to distinct strategic behaviors, offering opportunities for hybrid strategies.
 
 Integrating a Large Language Model (LLM) with the A2C framework represents an innovative advancement, though preliminary results indicate the need for further exploration to fully harness this integration. 
 
-Future work will focus on optimizing the noisy DQN through extended training, exploring additional Deep RL algorithms, applying models to more complex environments, and deepening the integration of LLMs to enhance decision-making capabilities. Overall, this project establishes a solid foundation for advancing Deep RL agents, demonstrating significant improvements in strategy optimization and performance within the Blackjack environment.
+Future work will focus on optimizing the noisy DDQN through extended training, exploring additional Deep RL algorithms, applying models to more complex environments, and deepening the integration of LLMs to enhance decision-making capabilities. Overall, this project establishes a solid foundation for advancing Deep RL agents, demonstrating significant improvements in strategy optimization and performance within the Blackjack environment.
 
 % use section* for acknowledgment
 %\section*{Acknowledgment}

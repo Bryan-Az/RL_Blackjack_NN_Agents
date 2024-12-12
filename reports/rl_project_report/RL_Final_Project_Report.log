@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.23)  8 DEC 2024 18:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.23)  12 DEC 2024 13:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -567,12 +567,11 @@ LaTeX Font Info:    Trying to load font information for U+pzd on input line 389
 (/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/upzd.fd
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
-<./fig/rl_project_architectures.png, id=1, 1223.57124pt x 551.05875pt>
-File: ./fig/rl_project_architectures.png Graphic file (type png)
-<use ./fig/rl_project_architectures.png>
-Package pdftex.def Info: ./fig/rl_project_architectures.png  used on input line
- 402.
-(pdftex.def)             Requested size: 429.99268pt x 227.62564pt.
+<./fig/fig1_rl_dqns.png, id=1, 1266.7325pt x 551.05875pt>
+File: ./fig/fig1_rl_dqns.png Graphic file (type png)
+<use ./fig/fig1_rl_dqns.png>
+Package pdftex.def Info: ./fig/fig1_rl_dqns.png  used on input line 402.
+(pdftex.def)             Requested size: 430.00685pt x 227.62564pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -581,7 +580,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 ocal/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
-] [2 <./fig/rl_project_architectures.png>]
+] [2 <./fig/fig1_rl_dqns.png>]
 Runaway argument?
 {sec:sys) 
 ./RL_Final_Project_Report.tex:421: Paragraph ended before \label was complete.
@@ -594,10 +593,13 @@ OK, entering \scrollmode...
 <./fig/DQN.png, id=15, 651.43375pt x 530.98375pt>
 File: ./fig/DQN.png Graphic file (type png)
 <use ./fig/DQN.png>
-Package pdftex.def Info: ./fig/DQN.png  used on input line 425.
+Package pdftex.def Info: ./fig/DQN.png  used on input line 426.
 (pdftex.def)             Requested size: 195.43163pt x 159.29634pt.
-./RL_Final_Project_Report.tex:429: Misplaced alignment tab character &.
-l.429 ...to the output predictions of the target &
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+./RL_Final_Project_Report.tex:430: Misplaced alignment tab character &.
+l.430 ...to the output predictions of the target &
                                                    policy networks, based on...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -609,88 +611,121 @@ might try typing `S' now just to see what is salvageable.
 <./fig/NoisyDDQN.png, id=17, 714.67pt x 596.2275pt>
 File: ./fig/NoisyDDQN.png Graphic file (type png)
 <use ./fig/NoisyDDQN.png>
-Package pdftex.def Info: ./fig/NoisyDDQN.png  used on input line 432.
+Package pdftex.def Info: ./fig/NoisyDDQN.png  used on input line 433.
 (pdftex.def)             Requested size: 214.40265pt x 178.86963pt.
 
-Overfull \hbox (5.42284pt too wide) in paragraph at lines 432--433
+Overfull \hbox (5.42284pt too wide) in paragraph at lines 433--434
  [][] 
  []
 
 <./fig/AC2.png, id=18, 775.89874pt x 806.01125pt>
 File: ./fig/AC2.png Graphic file (type png)
 <use ./fig/AC2.png>
-Package pdftex.def Info: ./fig/AC2.png  used on input line 437.
+Package pdftex.def Info: ./fig/AC2.png  used on input line 438.
 (pdftex.def)             Requested size: 217.25017pt x 225.68161pt.
 
-Overfull \hbox (8.27036pt too wide) in paragraph at lines 437--438
+Overfull \hbox (8.27036pt too wide) in paragraph at lines 438--439
 [][] 
  []
 
+[3 <./fig/DQN.png> <./fig/NoisyDDQN.png>]
+<./fig/q2c_vs_ddqn_strategy_map_ddqn.png, id=24, 398.9304pt x 1076.823pt>
+File: ./fig/q2c_vs_ddqn_strategy_map_ddqn.png Graphic file (type png)
+<use ./fig/q2c_vs_ddqn_strategy_map_ddqn.png>
+Package pdftex.def Info: ./fig/q2c_vs_ddqn_strategy_map_ddqn.png  used on input
+ line 447.
+(pdftex.def)             Requested size: 119.68004pt x 323.0494pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./fig/q2c_vs_ddqn_strategy_map_a2c.png, id=25, 400.3758pt x 1076.823pt>
+File: ./fig/q2c_vs_ddqn_strategy_map_a2c.png Graphic file (type png)
+<use ./fig/q2c_vs_ddqn_strategy_map_a2c.png>
+Package pdftex.def Info: ./fig/q2c_vs_ddqn_strategy_map_a2c.png  used on input 
+line 455.
+(pdftex.def)             Requested size: 120.11365pt x 323.0494pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 Runaway argument?
 {sec:res) 
-./RL_Final_Project_Report.tex:442: Paragraph ended before \label was complete.
+./RL_Final_Project_Report.tex:460: Paragraph ended before \label was complete.
 <to be read again> 
                    \par 
-l.442 
+l.460 
       
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
 
-Underfull \vbox (badness 1194) has occurred while \output is active []
+Underfull \vbox (badness 2990) has occurred while \output is active []
 
- [3 <./fig/DQN.png> <./fig/NoisyDDQN.png>]
+ [4 <./fig/AC2.png> <./fig/q2c_vs_ddqn_strategy_map_ddqn.png>]
+Underfull \vbox (badness 7981) has occurred while \output is active []
+
+
 Runaway argument?
-{sec:disc) \section *{Acknowledgment} 
-./RL_Final_Project_Report.tex:458: Paragraph ended before \label was complete.
+{sec:disc) 
+./RL_Final_Project_Report.tex:467: Paragraph ended before \label was complete.
 <to be read again> 
                    \par 
-l.458 
+l.467 
       
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
+[5 <./fig/q2c_vs_ddqn_strategy_map_a2c.png>]
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 538.
 
-./RL_Final_Project_Report.tex:479: LaTeX Error: Something's wrong--perhaps a mi
-ssing \item.
+Underfull \hbox (badness 1796) in paragraph at lines 544--545
+[]\OT1/ppl/m/n/8.03 agileRL, ``ag-ileRL: Ag-ile Re-in-force-ment Learn-ing
+ []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.479 \end{thebibliography}
-                           
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
 
-[4 <./fig/AC2.png>] (./RL_Final_Project_Report.aux)
+Underfull \hbox (badness 6608) in paragraph at lines 547--548
+[]\OT1/ppl/m/n/8.03 V. Mnih et al., ``Asyn-chronous Meth-ods for
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 547--548
+\OT1/ppl/m/n/8.03 Deep Re-in-force-ment Learn-ing,'' \OT1/ppl/m/it/8.03 arXiv p
+reprint
+ []
+
+
+Underfull \hbox (badness 1377) in paragraph at lines 556--557
+\OT1/ppl/m/n/8.03 ``BERT: Pre-training of Deep Bidi-rec-tional Trans-
+ []
+
+[6
+
+] (./RL_Final_Project_Report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 7408 strings out of 474116
- 124891 string characters out of 5743682
+ 7462 strings out of 474116
+ 125989 string characters out of 5743682
  1936187 words of memory out of 5000000
- 29639 multiletter control sequences out of 15000+600000
- 593729 words of font info for 113 fonts, out of 8000000 for 9000
+ 29691 multiletter control sequences out of 15000+600000
+ 596981 words of font info for 124 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 57i,8n,65p,1033b,382s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,8n,65p,1129b,382s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/
 local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/t
 exlive/2024/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/
-2024/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on RL_Final_Project_Report.pdf (4 pages, 440718 bytes).
+2024/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb></usr/local/texlive/2024/t
+exmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on RL_Final_Project_Report.pdf (6 pages, 583537 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
- 27 compressed objects within 1 object stream
+ 66 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
