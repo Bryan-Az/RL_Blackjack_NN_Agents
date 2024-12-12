@@ -361,7 +361,7 @@ g} \fi
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Blackjack-GPT: An Actor-Critic Reinforcement Learning via LLM System}
+\title{Blackjack RL: A Study of the Deep Actor-Critic and Deep Double Q-Learning Network Reinforcement Learning Networks}
 
 
 % author names and affiliations
@@ -400,7 +400,7 @@ Actor, Critic, Reinforcement, Learning, Network, Large-Language-Model, LLM, Blac
 \centering
 %\begin{wrapfigure}{r}{5.0in}
 {\includegraphics[width=\textwidth, height=8cm]{./fig/fig1_rl_dqns.png}}
-\caption{Evolution of the blackjack learning network agent development from left-to right: Q-learning to double deep q learning (DDQN) in blue, experimental noisy DDQN in pink, A/B testing of actor-to-critic (A2C) DDQN and previous DDQN in green, and finally the combined LLM based A2C agent in yellow.}
+\caption{Evolution of the blackjack learning network agent development from left-to right: Q-learning to double deep q learning (DDQN) in blue, experimental noisy DDQN in pink, A/B testing of actor-to-critic (A2C) DDQN and previous DDQN in green. Future proposed work is the combined LLM based A2C agent in yellow.}
 %\end{wrapfigure}
 \end{figure*}
 
@@ -440,7 +440,7 @@ The next and culminating step of our project was to use a different learning alg
 \end{figure}
 
 \section{Evaluation}\label{sec:eval}
-We evaluated the model in multiple ways in order to identify the DDQN and A2C Agent's weak points by using a heatmap of the learned strategies with respect to the game of blackjack.
+We evaluated the model to identify the DDQN and A2C Agent's weak points with respect to the game of blackjack. A good visualization and evaluation strategy was to create heat-maps of the learned strategies based on each networks's learned strategy. This is done by saving each models decisions according the cards that were dealt by the dealer across 200 rounds of simulated blackjack. Although this method is not mathematically rigorous due to sampling few simulations, this provides potential for future bootstrap methods that can identify with statistical accuracy methods of improvement by incorporating domain knowledge into the reinforcement learning strategy.
 
 \begin{figure}[h]
 \centering

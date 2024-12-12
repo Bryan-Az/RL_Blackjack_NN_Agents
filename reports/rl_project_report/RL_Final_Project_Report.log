@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.23)  12 DEC 2024 13:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.23)  12 DEC 2024 14:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -635,16 +635,13 @@ File: ./fig/q2c_vs_ddqn_strategy_map_ddqn.png Graphic file (type png)
 Package pdftex.def Info: ./fig/q2c_vs_ddqn_strategy_map_ddqn.png  used on input
  line 447.
 (pdftex.def)             Requested size: 119.68004pt x 323.0494pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 <./fig/q2c_vs_ddqn_strategy_map_a2c.png, id=25, 400.3758pt x 1076.823pt>
 File: ./fig/q2c_vs_ddqn_strategy_map_a2c.png Graphic file (type png)
 <use ./fig/q2c_vs_ddqn_strategy_map_a2c.png>
 Package pdftex.def Info: ./fig/q2c_vs_ddqn_strategy_map_a2c.png  used on input 
 line 455.
 (pdftex.def)             Requested size: 120.11365pt x 323.0494pt.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -660,12 +657,9 @@ control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
 
-Underfull \vbox (badness 2990) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4 <./fig/AC2.png> <./fig/q2c_vs_ddqn_strategy_map_ddqn.png>]
-Underfull \vbox (badness 7981) has occurred while \output is active []
-
-
 Runaway argument?
 {sec:disc) 
 ./RL_Final_Project_Report.tex:467: Paragraph ended before \label was complete.
@@ -700,9 +694,7 @@ Underfull \hbox (badness 1377) in paragraph at lines 556--557
 \OT1/ppl/m/n/8.03 ``BERT: Pre-training of Deep Bidi-rec-tional Trans-
  []
 
-[6
-
-] (./RL_Final_Project_Report.aux)
+[6] (./RL_Final_Project_Report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -711,7 +703,7 @@ L3 programming layer <2024-02-20>
 Here is how much of TeX's memory you used:
  7462 strings out of 474116
  125989 string characters out of 5743682
- 1936187 words of memory out of 5000000
+ 1937187 words of memory out of 5000000
  29691 multiletter control sequences out of 15000+600000
  596981 words of font info for 124 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
@@ -722,7 +714,7 @@ local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/t
 exlive/2024/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/
 2024/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb></usr/local/texlive/2024/t
 exmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on RL_Final_Project_Report.pdf (6 pages, 583537 bytes).
+Output written on RL_Final_Project_Report.pdf (6 pages, 583635 bytes).
 PDF statistics:
  66 PDF objects out of 1000 (max. 8388607)
  34 compressed objects within 1 object stream
